@@ -1,8 +1,19 @@
+/* Import the desired font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive, Arial, sans-serif;
+}
+
+@font-face {
+    font-family: 'FlappyBird';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -13,11 +24,13 @@ body {
 
 /* Header */
 header {
+    background-image: url("/flappy-bird-bg.png");
     text-align: center;
     padding: 20px;
-    background-color: #70C5CE;
     position: relative;
     border-bottom: 5px solid #5A9900;
+    font-family: 'Press Start 2P', system-ui;
+    line-height: 1.4;
 }
 
 .title {
@@ -39,7 +52,8 @@ header {
 .nav-button {
     padding: 15px 25px;
     background-color: #FFC800; /* Flappy Bird yellow */
-    color: #000000;
+    color: #ffffff;
+    text-shadow: 3px 3px 0 #000000;
     border: 4px solid #000000;
     border-radius: 10px;
     font-size: 18px;
@@ -49,6 +63,7 @@ header {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+    font-family: 'Press Start 2P', system-ui;
 }
 
 .nav-button:hover {
@@ -63,6 +78,7 @@ header {
 
 /* Main Content */
 .container {
+    font-family: "Play", sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -107,6 +123,8 @@ header {
     min-width: 300px;
     font-size: 16px;
     line-height: 1.6;
+    font-weight: 510;
+    font-style: normal;
 }
 
 /* Footer */
@@ -139,7 +157,6 @@ footer {
     .info-text {
         flex: 100%;
     }
-    
 }
 
 .fade-out {

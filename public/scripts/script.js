@@ -5,7 +5,7 @@ function onPlayClickGame() {
     setTimeout(() => {
         // Redirect to the game page
         window.location.href = "game.html"
-    }, 500)
+    }, 250)
   }
 
   function onPlayClickTech() {
@@ -15,7 +15,7 @@ function onPlayClickGame() {
     setTimeout(() => {
         // Redirect to the technical aspects page
         window.location.href = "mechanics.html"
-    }, 500)
+    }, 250)
   }
 
   function onPlayClickBack() {
@@ -25,7 +25,7 @@ function onPlayClickGame() {
     setTimeout(() => {
         // Redirect to the technical aspects page
         window.location.href = "/"
-    }, 500)
+    }, 250)
   }
 
 
