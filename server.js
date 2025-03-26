@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from "public" folder
 app.use(express.static(path.join(__dirname, './public')));
 
-// Routes
+// Routesa
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, './src/index.html')));
 app.get('/game.html', (req, res) => res.sendFile(path.join(__dirname, './src/game.html')));
 app.get('/mechanics.html', (req, res) => res.sendFile(path.join(__dirname, './src/mechanics.html')));
