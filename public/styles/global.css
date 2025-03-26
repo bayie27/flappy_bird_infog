@@ -21,6 +21,7 @@ body {
 }
 .header-background {
     background-image: url("/images/flappy-bird-bg.png");
+    /* background-size: ; */
     background-size: contain;
     position: absolute;
     left: 0px;
@@ -239,7 +240,7 @@ footer {
 
     .header-background {
         background-size: cover;
-        animation: scrollBackground 3s linear infinite;
+        animation-duration: 4s;
         position: absolute;
     }
 
