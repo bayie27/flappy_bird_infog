@@ -259,3 +259,13 @@ footer {
     opacity: 0;
     transition: opacity 0.5s;
 }
+
+#board {
+    background-image: url("../images/flappybirdbg.png");
+    cursor: default;
+    margin: auto;
+    display: block;
+    background-color: #FFFFFF;
+    border: 5px solid #2d2828;
+    border-radius: 15px;
+}
