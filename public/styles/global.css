@@ -183,7 +183,7 @@ footer {
     }
 
     .header {
-        height: 95dvh;
+        height: 95lvh;
     }
 
     .subtitle {
@@ -214,7 +214,7 @@ footer {
         background-size: cover;
         animation: scrollBackground 10s linear infinite;
         position: absolute;
-        height: 95dvh;
+        height: 95lvh;
     }
 }
 

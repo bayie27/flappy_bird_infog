@@ -1,49 +1,60 @@
 function onPlayClickGame() {
-    let containerID = document.getElementById("container-id")
-    containerID.classList.add("fade-out")
+  let headerBgID = document.getElementById("header-bg-id");
+  headerBgID.style.animation = "scrollBackground 1s ease-in-out infinite";
 
-    setTimeout(() => {
-        // Redirect to the game page
-        window.location.href = "game.html"
-    }, 250)
-  }
+  let headerID = document.getElementById("header-id");
+  headerID.classList.add("fade-out");
 
-  function onPlayClickTech() {
-    let containerID = document.getElementById("container-id")
-    containerID.classList.add("fade-out")
+  let containerID = document.getElementById("container-id");
+  containerID.classList.add("fade-out");
 
-    setTimeout(() => {
-        // Redirect to the technical aspects page
-        window.location.href = "mechanics.html"
-    }, 250)
-  }
-
-  function onPlayClickBack() {
-    let containerID = document.getElementById("container-id")
-    containerID.classList.add("fade-out")
-
-    setTimeout(() => {
-        // Redirect previous page
-        window.location.href = "/"
-    }, 250)
-  }
-
-  function updateButtonText() {
-    const playButton = document.querySelector('.nav-button:nth-child(1)'); // First button
-    const techButton = document.querySelector('.nav-button:nth-child(2)'); // Second button
-
-    if (window.innerWidth <= 600) {
-        playButton.textContent = "Play";
-        techButton.textContent = "Technicals";
-    } else {
-        playButton.textContent = "Play Flappy Bird";
-        techButton.textContent = "Technical Details";
-    }
+  setTimeout(() => {
+    // Redirect to the game page
+    window.location.href = "game.html";
+  }, 500);
 }
 
-// Run the function on page load and on resize
-window.addEventListener("DOMContentLoaded", updateButtonText);
+function onPlayClickTech() {
+  let headerBgID = document.getElementById("header-bg-id");
+  headerBgID.style.animation = "scrollBackground 1s ease-in-out infinite";
+
+  let headerID = document.getElementById("header-id");
+  headerID.classList.add("fade-out");
+
+  let containerID = document.getElementById("container-id");
+  containerID.classList.add("fade-out");
+
+  setTimeout(() => {
+    // Redirect to the technical aspects page
+    window.location.href = "mechanics.html";
+  }, 500);
+}
+
+function onPlayClickBack() {
+  let containerID = document.getElementById("container-id");
+  containerID.classList.add("fade-out");
+
+  setTimeout(() => {
+    // Redirect previous page
+    window.location.href = "/";
+  }, 250);
+}
+
+function updateButtonText() {
+  const playBtn = document.getElementById("play-btn");
+  const techBtn = document.getElementById("tech-btn"); // Fixed variable name
+
+  if (window.innerWidth <= 600) {
+    playBtn.textContent = "Play";
+    techBtn.textContent = "Technicals"; // Fixed text
+  } else {
+    playBtn.textContent = "Play Flappy Bird";
+    techBtn.textContent = "Technical Details";
+  }
+}
+
+// Run on page load
+updateButtonText();
+
+// Listen for window resize
 window.addEventListener("resize", updateButtonText);
-
-
-
