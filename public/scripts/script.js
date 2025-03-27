@@ -23,7 +23,7 @@ function onPlayClickGame() {
     containerID.classList.add("fade-out")
 
     setTimeout(() => {
-        // Redirect to the technical aspects page
+        // Redirect previous page
         window.location.href = "/"
     }, 250)
   }

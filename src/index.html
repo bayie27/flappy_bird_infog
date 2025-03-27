@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/global.css" />
     <title>Flappy Bird - The Legend</title>
-
-    <script src = "scripts/script.js"></script>
-
+    <script src="scripts/script.js"></script>
   </head>
+  
   <body>
+    <div class="header-background"></div>
     <header>
       <h1 class="title">Flappy Bird: The Game That Flew Too High</h1>
       <p style="color: white; margin-bottom: 10px">
@@ -17,11 +17,17 @@
       </p>
     </header>
 
+    <!-- Navigation Buttons -->
     <div class="nav-buttons">
-      <button class="nav-button" onclick="onPlayClickGame()">PLAY FLAPPY BIRD</button>
-      <button class="nav-button" onclick="onPlayClickTech()">TECHNICAL DETAILS</button>
+      <button class="nav-button" onclick="onPlayClickGame()">
+        PLAY FLAPPY BIRD
+      </button>
+      <button class="nav-button" onclick="onPlayClickTech()">
+        TECHNICAL DETAILS
+      </button>
     </div>
 
+    <!-- Infographic Segment -->
     <div class="container" id="container-id">
       <div class="infographic-section">
         <h2 class="section-title">SECTION 1</h2>
@@ -62,7 +68,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="infographic-section">
         <h2 class="section-title">SECTION 3</h2>
         <div class="info-content">
@@ -129,6 +135,5 @@
       <p>© 2025 Flappy Bird Tribute Site</p>
       <p>Flappy Bird was created by Dong Nguyen. This is a fan tribute site.</p>
     </footer>
-
   </body>
 </html>
