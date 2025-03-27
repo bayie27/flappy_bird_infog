@@ -1,6 +1,6 @@
 function onPlayClickGame() {
   let headerBgID = document.getElementById("header-bg-id");
-  headerBgID.style.animation = "scrollBackground 1s ease-in-out infinite";
+  headerBgID.style.animationDuration = "0.5s"
 
   let headerID = document.getElementById("header-id");
   headerID.classList.add("fade-out");
