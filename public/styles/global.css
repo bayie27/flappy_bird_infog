@@ -20,7 +20,7 @@ body {
     position: relative;
 }
 .header-background {
-    background-image: url("/flappy-bird-bg.png");
+    background-image: url("/images/flappy-bird-bg.png");
     background-size: contain;
     position: absolute;
     left: 0px;
@@ -135,7 +135,7 @@ header {
 
 .section-title {
     background-color: #FFC800;
-    color: #000000;
+    color: #2d2828;
     display: inline-block;
     padding: 8px 15px;
     border: 3px solid #2d2828;
@@ -159,6 +159,36 @@ header {
     line-height: 1.6;
     font-weight: 510;
     font-style: normal;
+}
+
+.coca-cola-gallery {
+    display: flex;
+    width: 100%;
+    justify-content: center;  
+    gap: 2vh; /* Adjust spacing between images */
+    padding: 2vh 0;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.coke-img {
+    width: 45vh; /* Adjust size relative to viewport height */
+    max-height: 30vh; /* Prevents images from getting too large */
+    object-fit: contain; /* Ensures the whole image fits */
+    border-radius: 1vh; /* Rounded corners */
+    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.coke-img:hover {
+    transform: scale(1.03); /* Slight hover effect */
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    .coke-img {
+        width: 12vh;
+        max-height: 15vh;
+    }
 }
 
 /* Footer */
@@ -210,6 +240,17 @@ footer {
         background-size: cover;
         animation: scrollBackground 10s linear infinite;
         position: absolute;
+    }
+
+    .coca-cola-gallery {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center; /* Center images */
+        gap: 1vh; /* Reduce spacing for a cleaner look */
+    }
+
+    .coke-img {
+        width: 65vw; /* Adjust size relative to viewport width */
+        max-height: 25vh; /* Keep image proportions reasonable */
     }
 }
 
