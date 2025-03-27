@@ -239,7 +239,7 @@ footer {
 
     .header-background {
         background-size: cover;
-        animation: scrollBackground 10s linear infinite;
+        animation: scrollBackground 3s linear infinite;
         position: absolute;
     }
 
