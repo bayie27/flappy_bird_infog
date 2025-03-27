@@ -182,10 +182,6 @@ footer {
         margin-right: 1vh;
     }
 
-    .header {
-        height: 95lvh;
-    }
-
     .subtitle {
         font-size: 12px;
     }
@@ -214,7 +210,6 @@ footer {
         background-size: cover;
         animation: scrollBackground 10s linear infinite;
         position: absolute;
-        height: 95lvh;
     }
 }
 
