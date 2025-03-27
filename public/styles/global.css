@@ -185,14 +185,6 @@ header {
     transform: scale(1.03); /* Slight hover effect */
 }
 
-/* Mobile-friendly adjustments */
-@media (max-width: 768px) {
-    .coke-img {
-        width: 12vh;
-        max-height: 15vh;
-    }
-}
-
 /* Footer */
 footer {
     background-color: #2d2828;
