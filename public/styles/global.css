@@ -93,7 +93,7 @@ header {
     font-size: 18px;
     cursor: pointer;
     transition: transform 0.1s;
-    box-shadow: 0 5px 0 #5A4900;
+    box-shadow:4px 4px 0 #5A4900;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -182,6 +182,10 @@ footer {
         margin-right: 1vh;
     }
 
+    .header {
+        height: 95dvh;
+    }
+
     .subtitle {
         font-size: 12px;
     }
@@ -210,6 +214,7 @@ footer {
         background-size: cover;
         animation: scrollBackground 10s linear infinite;
         position: absolute;
+        height: 95dvh;
     }
 }
 
