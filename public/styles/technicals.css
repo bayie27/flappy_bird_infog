@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Play", sans-serif;
 }
 
 body {
@@ -138,7 +138,7 @@ body {
 
 /* Conclusion Styles */
 .conclusion {
-    font-style: sans-serif;
+    font-family: "Play", sans-serif;
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
