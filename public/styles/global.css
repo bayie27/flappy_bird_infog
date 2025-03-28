@@ -173,7 +173,6 @@ header {
 
 .info-text {
     flex: 1;
-    min-width:300px;
     font-size: 16px;
     line-height: 1.8;
     display: flex;
@@ -382,7 +381,7 @@ footer {
     }
 
     #game-container {
-        padding: 20px 0px;
+        padding: 10px;
     }
 }
 
@@ -395,10 +394,10 @@ footer {
     cursor: default;
     margin: auto;
     display: block;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
-@media (max-width: 410px) {
+@media (max-width: 430px) {
     #board {
         width: 100%;
         aspect-ratio: 9/16; /* Maintain a 9:16 aspect ratio */
