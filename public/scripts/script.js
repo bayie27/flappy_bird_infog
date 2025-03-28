@@ -41,17 +41,11 @@ function onPlayClickBack() {
 }
 
 function updateButtonText() {
-  const playBtn = document.getElementById("play-btn");
-  const techBtn = document.getElementById("tech-btn"); // Fixed variable name
-
-  if (window.innerWidth <= 600) {
-    playBtn.textContent = "Play";
-    techBtn.textContent = "Technicals"; // Fixed text
-  } else {
-    playBtn.textContent = "Play Flappy Bird";
-    techBtn.textContent = "Technical Details";
-  }
+  const isMobile = window.innerWidth <= 600;
+  document.getElementById("play-btn").textContent = isMobile ? "Play" : "Play Flappy Bird";
+  document.getElementById("tech-btn").textContent = isMobile ? "Technicals" : "Technical Details";
 }
+
 
 // Run on page load
 updateButtonText();
