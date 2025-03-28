@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird - Mechanics</title>
+    <link rel="stylesheet" href="styles/technicals.css" />
+    <script src="scripts/script.js"></script>
+  </head>
+  <body> 
+    <div class="container">
+        <header class="section animated-header">
+            <h1 class="main-title">
+                <div class="section-title-container">
+                    <span class="section-title">TECHNICAL INSIGHTS: THE ENGINE BEHIND FLAPPY BIRD</span>
+                </div>
+            </h1>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Flappy Bird, developed by Dong Nguyen and released in 2013, is a mobile game that captivated players worldwide with its minimalist design and challenging mechanics. Players control a small bird, tapping the screen to navigate through a series of green pipes. The game's appeal lies in its simple yet demanding gameplay, requiring precise timing and quick reflexes.</p>
+                    <a href="#overview" class="custom-button">Explore Technical Aspects</a>
+                </div>
+                <div class="image-content">
+                    <img src="https://i.ytimg.com/vi/ihvBiJ1oC9U/maxresdefault.jpg">
+                </div>
+            </div>
+        </header>
+
+        <!-- Technical Overview Section -->
+        <section id="overview" class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">TECHNICAL OVERVIEW</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Flappy Bird's success isn't just about simple graphics—it's built on a set of efficient, well-tuned systems that work together seamlessly. This section explains how a few key technical components create a smooth, challenging, and addictive experience on any mobile device.</p>
+                    <div class="highlight-box">
+                        <p>The game's technical architecture combines physics, collision detection, scoring, procedural generation, and frame rate management into a cohesive system that runs efficiently on mobile devices.</p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="https://www.researchgate.net/profile/Louis-Samuel-Pilcer/publication/324066514/figure/fig1/AS:609193144885248@1522254372199/Flappy-Bird-setup_Q320.jpg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Physics Engine Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">PHYSICS ENGINE: GRAVITY, MOMENTUM, AND MOVEMENT</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Gravity Simulation:</h3>
+                        <p>The game applies a constant downward force that makes the bird fall at a steady, predictable rate. This simplified mimicry of real-world gravity ensures that when no input is given, the bird's descent feels natural.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Impulse Mechanics:</h3>
+                        <p>Every tap produces a calculated upward impulse, providing enough lift to navigate the gaps between pipes. The impulse is fine-tuned so that the upward motion is noticeable yet not overly abrupt.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Balancing Dynamics:</h3>
+                        <p>The interplay between gravity and the upward impulse creates a delicate balance. The challenge lies in timing each tap perfectly; too frequent or too sparse inputs lead to overshooting gaps or crashing.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Simplified Calculations:</h3>
+                        <p>Using basic formulas to update the bird's vertical velocity and position keeps the physics engine efficient, which is crucial for maintaining the game's fast-paced nature.</p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="png">
+                </div>
+            </div>
+        </section>
+
+        <!-- Collision Detection Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">COLLISION DETECTION SYSTEM</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="image-content">
+                    <img src="png">
+                </div>
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Use of Bounding Shapes:</h3>
+                        <p>Instead of complex pixel-perfect checks, the game employs simple bounding boxes or circles around the bird and the pipes. When these shapes intersect, the game recognizes a collision.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Real-Time Operation:</h3>
+                        <p>The system performs collision checks every frame, ensuring immediate feedback as soon as the bird makes contact with an obstacle or the ground.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Efficiency and Consistency:</h3>
+                        <p>By keeping the collision calculations minimal, the game runs smoothly on a wide range of devices, and players quickly learn the precise margins needed to avoid obstacles.</p>
+                    </div>
+                    
+                    <div class="tooltip">Learn more about collision detection
+                        <span class="tooltip-text">Collision detection is one of the most critical systems in any game, especially in Flappy Bird where precision is key.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scoring Mechanism Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">SCORING MECHANISM</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Incremental Point System:</h3>
+                        <p>Each time the bird successfully passes through a pair of pipes, the game adds one point to the player's score. This direct reward system continuously motivates players to improve.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Instant Visual Feedback:</h3>
+                        <p>The current score is displayed prominently during gameplay, offering real-time updates that keep players engaged and focused on beating their previous best.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Minimal Data Processing:</h3>
+                        <p>The scoring updates occur in real time with a simple and efficient algorithm, ensuring that the system does not slow down the game even on devices with limited processing power.</p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="png">
+                </div>
+            </div>
+        </section>
+
+        <!-- Procedural Generation Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">PROCEDURAL GENERATION OF OBSTACLES</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="image-content">
+                    <img src="png">
+                </div>
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Randomized Pipe Placement:</h3>
+                        <p>Each pair of pipes is generated with a randomly positioned gap while maintaining a constant gap size. This randomness means no two playthroughs are identical, keeping the experience fresh.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Consistent Level of Challenge:</h3>
+                        <p>The algorithm ensures that while the vertical positions vary, the obstacles remain within a fair range, so the game stays challenging but not impossible.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Simple yet Effective Design:</h3>
+                        <p>By selecting gap positions from a predefined range, the system balances randomness with fairness, preventing any configuration that would create an unwinnable scenario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame Rate Management Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">FRAME RATE MANAGEMENT</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Consistent Timing Mechanism:</h3>
+                        <p>The game employs a clock system that updates physics, collision detection, and animations at a steady rate, ensuring uniform gameplay across different devices.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Smooth Animations:</h3>
+                        <p>A stable frame rate is essential for fluid motion. It helps the bird's movement and the scrolling of obstacles appear seamless, reducing any lag that could disrupt play.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Device Independence:</h3>
+                        <p>Synchronizing game updates with a fixed clock minimizes differences in gameplay speed, so the experience remains consistent whether on high-end or older hardware.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Optimized Resource Use:</h3>
+                        <p>The frame rate management system is designed to use only the necessary computational power, ensuring the game is both responsive and energy-efficient.</p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="png">
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Technical Considerations Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">ADDITIONAL TECHNICAL CONSIDERATIONS</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="image-content">
+                    <img src="png">
+                </div>
+                <div class="text-content">
+                    <div class="subsection">
+                        <h3 class="subsection-title">Lightweight Asset Design:</h3>
+                        <p>Flappy Bird uses simple graphics and a small set of assets, which keeps the game's file size low, reduces load times, and ensures smooth performance on all devices.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Adaptable Code Framework:</h3>
+                        <p>The straightforward programming structure allows for rapid modifications. This adaptability is why developers could quickly create playable clones and variations even after the original was removed.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Efficient Error Handling:</h3>
+                        <p>When a collision occurs, the game resets quickly with minimal delay. This rapid error handling supports a continuous play loop, keeping frustration low and the experience dynamic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="section">
+            <div class="section-title-container">
+                <h2 class="section-title">CONCLUSION</h2>
+            </div>
+            <p class="conclusion">Flappy Bird's technical design is a masterclass in efficiency and simplicity. By combining a finely tuned physics engine, real-time collision detection, a straightforward scoring system, procedural obstacle generation, and robust frame rate management, the game delivers an engaging experience with minimal resources. These elements not only make the game challenging and addictive but also serve as a powerful lesson for developers on how basic programming principles can yield a lasting impact in mobile gaming.</p>
+            <div class="image-content">
+                <img src="png">
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="#" class="custom-button">Back to Top</a>
+            </div>
+        </section>
+    </div>
+
+          <div class="coca-cola-gallery">
+            <img src="images/coke-infog-1.jpg" alt="Coke-Infog 1" class="coke-img" />
+            <img src="images/coke-infog-2.jpg" alt="Coke-Infog 2" class="coke-img" />
+            <img src="images/coke-infog-3.jpg" alt="Coke-Infog 3" class="coke-img" />
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="onPlayClickBack()">BACK</button>
+      </div>
+    </div>
+  </body>
+</html>
