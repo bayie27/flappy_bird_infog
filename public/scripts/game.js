@@ -155,7 +155,7 @@ function renderMenu() {
 function renderGame(deltaTime) {
     velocityY += gravity * deltaTime;
     bird.y = Math.max(bird.y + velocityY * deltaTime * 60, 0);
-
+    context.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight);
     context.save();
     context.translate(bird.x + bird.width / 2, bird.y + bird.height / 2);
     let angle = velocityY * 0.1;
@@ -198,13 +198,13 @@ function renderGame(deltaTime) {
 
 //Renders game over screen with final score
 function renderGameOver() {
+    context.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight);
     if(gameOverImg.complete) {
         let imgWidth = 400; 
         let imgHeight = 80; 
         let x = (boardWidth - imgWidth) / 2; 
         let y = boardHeight / 3;
         context.drawImage(gameOverImg, x, y, imgWidth, imgHeight); 
-
         document.fonts.ready.then(() => {
             let scoreText = `Your score: ${Math.floor(score)}`; 
             context.fillStyle = "white"; 
