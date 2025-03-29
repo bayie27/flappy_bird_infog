@@ -11,7 +11,9 @@ body {
     background-color: #4EC0CA; /* Flappy Bird sky blue */
     overflow-x: hidden;
     position: relative;
+    font-family: 'Play', sans-serif;
 }
+
 .header-background {
     background-image: url("/images/flappy-bird-bg.png");
     background-size: contain;
@@ -27,6 +29,7 @@ body {
     background-repeat: repeat-x;
     border-bottom: 5px solid #5A9900;
 }
+
 @keyframes scrollBackground {
     from {
         background-position-x: 0;
@@ -114,43 +117,187 @@ header {
 
 /* Infographic Section */
 .infographic-section {
-    background-color: #FFFFFF;
+    background-color: #f9f9f9;
     border: 5px solid #2d2828;
     border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px #00000033;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.infographic-section:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: 0 15px 30px #00000040;
 }
 
 .container-title {
     display: flex;
+    align-items: center;
     justify-content: center;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 .section-title {
+    position: relative;
     background-color: #FFC800;
     color: #2d2828;
     display: inline-block;
-    padding: 8px 15px;
+    padding: 12px 25px;
     border: 3px solid #2d2828;
     border-radius: 10px;
     margin-bottom: 15px;
     font-size: 24px;
+    transform: skew(-5deg);
+    font-family: 'Press Start 2P', system-ui;
+    box-shadow: 4px 4px 0 #5A4900;
+    letter-spacing: 1px;
+}
+
+.section-title:hover {
+    transform: skew(-5deg) scale(1.05);
 }
 
 .info-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: space-between;
     align-items: center;
 }
 
 .info-text {
     flex: 1;
-    min-width: 300px;
+    min-width:300px;
     font-size: 16px;
-    line-height: 1.6;
-    font-style: normal;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #f9f9f9;
+    padding: 35px;
+    border-radius: 10px;
+    border: 3px solid #2d2828;
+    box-shadow: 4px 4px 0 #0000001a;
+    transition: transform 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 #00000026;
+}
+
+.info-card.highlight {
+    background-color: #ffc8001a;
+    border-color: #FFC800;
+}
+
+.info-card h3 {
+    color: #2d2828;
+    border-bottom: 2px dashed #5A9900;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 14px;
+}
+
+.pixel-list {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.pixel-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.pixel-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background-color: #FFC800;
+    border: 2px solid #2d2828;
+}
+
+.info-image {
+    flex: 0 0 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel-frame {
+    border: 5px solid #2d2828;
+    padding: 5px;
+    background-color: #FFC800;
+    position: relative;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 0 #00000033;
+}
+
+.pixel-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.section-image {
+    max-width: 100%;
+    display: block;
+    border: 3px solid #2d2828;
+}
+
+.info-image-stats {
+    padding-top: 23px;
+    padding-bottom: 5px;
+}
+
+.stats-graph {
+    width: 800px;  
+    max-width: 100%;  
+    height: auto;  
+    object-fit: contain;
+    border: 5px solid #2d2828;
+    padding: 5px;
+    background-color: #FFC800;
+    position: relative;
+    box-shadow: 5px 5px 0 #00000033;
+}
+
+.info-image-funfacts {
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+.funfacts-photo {
+    width: 800px;  
+    max-width: 100%;  
+    height: auto;  
+    object-fit: contain;
+    border: 5px solid #2d2828;
+    padding: 5px;
+    background-color: #FFC800;
+    position: relative;
+    box-shadow: 5px 5px 0 #00000033;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.funfacts-photo:hover {
+    transform: rotate(0deg) scale(1.05);
 }
 
 .coca-cola-gallery {
@@ -167,7 +314,7 @@ header {
     max-height: 30vh; /* Prevents images from getting too large */
     object-fit: contain; /* Ensures the whole image fits */
     border-radius: 1vh; /* Rounded corners */
-    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5vh 1vh #00000033;
     transition: transform 0.2s ease-in-out;
 }
 
