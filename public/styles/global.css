@@ -233,6 +233,10 @@ footer {
         width: 65vw; /* Adjust size relative to viewport width */
         max-height: 25vh; /* Keep image proportions reasonable */
     }
+
+    #game-container {
+        padding: 20px 0px;
+    }
 }
 
 .fade-out {
@@ -245,7 +249,5 @@ footer {
     cursor: default;
     margin: auto;
     display: block;
-    background-color: #FFFFFF;
-    border: 5px solid #2d2828;
     border-radius: 15px;
 }
