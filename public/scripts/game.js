@@ -1,6 +1,6 @@
 // Game canvas dimensions
 let boardWidth = 360; 
-let boardHeight = 640; 
+let boardHeight = 540; 
 
 // Game assets and state variables
 let backgroundImg = new Image();
@@ -144,9 +144,9 @@ function renderMenu() {
         context.font = "15px 'Press Start 2P'"; 
         context.textAlign = "center";
         if (window.innerWidth < 600) {
-            context.fillText("Tap to Start", boardWidth / 2, 400);
+            context.fillText("Tap to Start", boardWidth / 2, playButton.y + playButton.height + 50);
         } else {
-            context.fillText("Press Space to Start", boardWidth / 2, 400);
+            context.fillText("Press Space to Start", boardWidth / 2, playButton.y + playButton.height + 50);
         }
     });
 }
@@ -258,7 +258,7 @@ function handleInput() {
         resetGame();
         currentState = GAME_STATE.MENU;
     } else if(currentState === GAME_STATE.PLAYING) {
-        velocityY = -8; // pixels per second
+        velocityY = -8.5; // pixels per second
     }
 }
 
@@ -285,8 +285,9 @@ function resetGame() {
 
 //Checks for collision between two rectangles
 function detectCollision(a, b) {
-    return a.x < b.x + b.width &&
-        a.x + a.width > b.x && 
-        a.y < b.y + b.height &&
-        a.y + a.height > b.y;
+    const collisionBuffer = 3; // Allow a small buffer for collision detection
+    return a.x + collisionBuffer < b.x + b.width &&
+        a.x + a.width - collisionBuffer > b.x && 
+        a.y + collisionBuffer < b.y + b.height &&
+        a.y + a.height - collisionBuffer > b.y;
 }
