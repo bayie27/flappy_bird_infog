@@ -8,10 +8,8 @@
 }
 
 body {
-    background-color: #4DD0E1;
-    background-image: linear-gradient(to bottom right, #4DD0E1, #26C6DA);
-    padding: 20px;
-    max-width: 1200px;
+    background-color: #4EC0CA;
+    padding-top: 40px;
     margin: 0 auto;
     color: #333;
 }
@@ -46,7 +44,7 @@ body {
 }
 
 .section-title {
-    background-color: #FFC107;
+    background-color: #FFC800;
     display: inline-block;
     padding: 12px 25px;
     border-radius: 10px;
@@ -147,7 +145,7 @@ body {
     padding: 15px;
     background-color: #FFF9C4;
     border-radius: 10px;
-    border-left: 5px solid #FFC107;
+    border-left: 5px solid #FFC800;
 }
 
 
@@ -155,7 +153,7 @@ body {
 .custom-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #FFC107;
+    background-color: #FFC800;
     color: #333;
     border: 2px solid #333;
     border-radius: 8px;
@@ -303,6 +301,16 @@ body {
 .nav-button:active {
     transform: translateY(5px);
     box-shadow: none;
+}
+
+/* Footer */
+footer {
+    background-color: #2d2828;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    border-top: 5px solid #5A9900;
+    margin-top: 50px;
 }
 
 .fade-out {
