@@ -1,11 +1,16 @@
+// Game canvas dimensions
 let boardWidth = 360; 
 let boardHeight = 640; 
+
+// Game assets and state variables
 let backgroundImg = new Image();
 let gameOverAlertShown = false;
 backgroundImg.src = "../images/flappybirdbg.png"; 
 
 document.addEventListener("keydown", handleKeyDown); 
+document.addEventListener("touchstart", handleTouch, { passive: false });
 
+// Game states
 let GAME_STATE = {
     MENU: "menu",
     PLAYING: "playing", 
@@ -13,6 +18,7 @@ let GAME_STATE = {
 }; 
 let currentState = GAME_STATE.MENU;
 
+// UI element positions and dimensions
 let playButton = {
     x: boardWidth / 2 - 115.5 / 2,
     y: boardHeight / 2 - 64 / 2,
@@ -40,19 +46,20 @@ let bird = {
     height: 30
 }
 
+// Physics constants (in pixels per second)
+let lastTime = 0;
 let velocityY = 0;
-let velocityX = -2;
-let gravity = 0.5; 
+let velocityX = -120; // Horizontal pipe movement speed
+let gravity = 30;     // Gravity acceleration
 let birdY = boardHeight / 2; 
+
+// Pipe properties
 let pipeWidth = 60; 
-let pipeGap = 130; 
+let pipeGap = 130;    // Vertical space between pipes
 let pipeArray = []; 
 let pipeIntervalId; 
 
-function placePipes() {
-    createPipes();
-}
-
+//Creates a new pair of pipes with random heights
 function createPipes() {
     let maxTopPipeHeight = boardHeight - pipeGap - 50;
     let topPipeHeight = Math.floor(Math.random() * maxTopPipeHeight); 
@@ -78,6 +85,7 @@ function createPipes() {
     pipeArray.push(topPipe, bottomPipe); 
 }
 
+//Initializes game assets and starts the game loop
 window.onload = function() {
     board = document.getElementById("board"); 
     board.height = boardHeight; 
@@ -99,19 +107,23 @@ window.onload = function() {
     requestAnimationFrame(update); 
 }
 
-function update() {
-    requestAnimationFrame(update); 
-    context.clearRect(0,0, board.width, board.height); 
+//Main game loop - handles different game states
+function update(currentTime = 0) {
+    const deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
+    lastTime = currentTime;
+    requestAnimationFrame(update);
+    context.clearRect(0, 0, board.width, board.height);
 
     if(currentState === GAME_STATE.MENU) {
-        renderMenu(); 
+        renderMenu();
     } else if(currentState === GAME_STATE.PLAYING) {
-        renderGame(); 
+        renderGame(deltaTime);
     } else if(currentState === GAME_STATE.GAME_OVER) {
-        renderGameOver(); 
+        renderGameOver();
     }
 }
 
+//Renders menu screen with logo and start instructions
 function renderMenu() {
     if(backgroundImg.complete) {
         context.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight); 
@@ -130,14 +142,19 @@ function renderMenu() {
     document.fonts.ready.then(() => {
         context.fillStyle = "white"; 
         context.font = "15px 'Press Start 2P'"; 
-        context.textAlign = "left"; 
-        context.fillText("Press Space to Start", 35, 400);
+        context.textAlign = "center";
+        if (window.innerWidth < 600) {
+            context.fillText("Tap to Start", boardWidth / 2, 400);
+        } else {
+            context.fillText("Press Space to Start", boardWidth / 2, 400);
+        }
     });
 }
 
-function renderGame() {
-    velocityY += gravity;
-    bird.y = Math.max(bird.y + velocityY, 0); 
+//Renders game state with bird movement and pipe scrolling
+function renderGame(deltaTime) {
+    velocityY += gravity * deltaTime;
+    bird.y = Math.max(bird.y + velocityY * deltaTime * 60, 0);
 
     context.save();
     context.translate(bird.x + bird.width / 2, bird.y + bird.height / 2);
@@ -153,7 +170,7 @@ function renderGame() {
 
     for(let i = 0; i < pipeArray.length; i++) {
         let pipe = pipeArray[i];
-        pipe.x += velocityX;
+        pipe.x += velocityX * deltaTime;
 
         context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height); 
 
@@ -179,6 +196,7 @@ function renderGame() {
     });
 }
 
+//Renders game over screen with final score
 function renderGameOver() {
     if(gameOverImg.complete) {
         let imgWidth = 400; 
@@ -195,7 +213,11 @@ function renderGameOver() {
             context.fillText(scoreText, boardWidth / 2, y + imgHeight + 50); 
 
             context.font = "10px 'Press Start 2P'"; 
-            context.fillText("Press Space to Return to Menu", boardWidth / 2, y + imgHeight + 105);
+            if (window.innerWidth < 600) {
+                context.fillText("Tap to Return to Menu", boardWidth / 2, y + imgHeight + 105);
+            } else {
+                context.fillText("Press Space to Return to Menu", boardWidth / 2, y + imgHeight + 105);
+            }
         });
 
         if (!gameOverAlertShown) {
@@ -205,20 +227,42 @@ function renderGameOver() {
     }
 }
 
-function handleKeyDown(e) {
-    if(e.code === "Space") {
+//Handles touch input for mobile devices
+function handleTouch(e) {
+    const rect = board.getBoundingClientRect();
+    
+    const touch = e.touches[0];
+    
+    if (touch.clientX >= rect.left && 
+        touch.clientX <= rect.right && 
+        touch.clientY >= rect.top && 
+        touch.clientY <= rect.bottom) {
         e.preventDefault();
-        if(currentState === GAME_STATE.MENU) {
-            startGame(); 
-        } else if(currentState === GAME_STATE.GAME_OVER) {
-            resetGame();
-            currentState = GAME_STATE.MENU;
-        } else if(currentState === GAME_STATE.PLAYING) {
-            velocityY = -8;
-        }
+        handleInput();
     }
 }
 
+//Handles keyboard input
+function handleKeyDown(e) {
+    if(e.code === "Space") {
+        e.preventDefault();
+        handleInput();
+    }
+}
+
+//Common input handler for both touch and keyboard
+function handleInput() {
+    if(currentState === GAME_STATE.MENU) {
+        startGame();
+    } else if(currentState === GAME_STATE.GAME_OVER) {
+        resetGame();
+        currentState = GAME_STATE.MENU;
+    } else if(currentState === GAME_STATE.PLAYING) {
+        velocityY = -8; // pixels per second
+    }
+}
+
+//Initializes a new game session
 function startGame() {
     currentState = GAME_STATE.PLAYING; 
     resetGame();
@@ -227,9 +271,10 @@ function startGame() {
         clearInterval(pipeIntervalId);
     }
 
-    pipeIntervalId = setInterval(placePipes, 1700); 
+    pipeIntervalId = setInterval(createPipes, 1700); 
 }
 
+//Resets game state to initial values
 function resetGame() {
     bird.y = birdY;
     velocityY = 0; 
@@ -238,6 +283,7 @@ function resetGame() {
     gameOverAlertShown = false;
 }
 
+//Checks for collision between two rectangles
 function detectCollision(a, b) {
     return a.x < b.x + b.width &&
         a.x + a.width > b.x && 
