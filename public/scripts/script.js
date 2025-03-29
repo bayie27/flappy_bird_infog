@@ -26,7 +26,7 @@ function onPlayClickTech() {
 
   setTimeout(() => {
     // Redirect to the technical aspects page
-    window.location.href = "mechanics.html";
+    window.location.href = "technicals.html";
   }, 500);
 }
 

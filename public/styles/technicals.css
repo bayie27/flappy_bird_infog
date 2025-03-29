@@ -218,6 +218,34 @@ body {
     opacity: 1;
 }
 
+/* Infographic Section */
+.infographic-section {
+    background-color: #f9f9f9;
+    border: 5px solid #2d2828;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px #00000033;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.infographic-section:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: 0 15px 30px #00000040;
+}
+
+.info-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .coca-cola-gallery {
     display: flex;
     width: 100%;
@@ -277,6 +305,10 @@ body {
     box-shadow: none;
 }
 
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
 
 /* Responsive Design */
 @media (max-width: 600px) { /* Flappy Bird mobile */
