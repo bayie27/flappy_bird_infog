@@ -7,13 +7,6 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: 'FlappyBird';
-    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
     background-color: #4EC0CA; /* Flappy Bird sky blue */
     overflow-x: hidden;
@@ -23,7 +16,6 @@ body {
 
 .header-background {
     background-image: url("/images/flappy-bird-bg.png");
-    /* background-size: ; */
     background-size: contain;
     position: absolute;
     left: 0px;
@@ -337,8 +329,6 @@ footer {
     text-align: center;
     padding: 20px;
     border-top: 5px solid #5A9900;
-    position: relative;
-    z-index: 10;
     margin-top: 50px;
 }
 
@@ -378,7 +368,6 @@ footer {
     .header-background {
         background-size: cover;
         animation-duration: 4s;
-        position: absolute;
     }
 
     .coca-cola-gallery {
@@ -391,6 +380,10 @@ footer {
         width: 65vw; /* Adjust size relative to viewport width */
         max-height: 25vh; /* Keep image proportions reasonable */
     }
+
+    #game-container {
+        padding: 20px 0px;
+    }
 }
 
 .fade-out {
@@ -399,12 +392,15 @@ footer {
 }
 
 #board {
-    background-image: url("../images/flappybirdbg.png");
     cursor: default;
     margin: auto;
     display: block;
-    background-color: #FFFFFF;
-    border: 5px solid #2d2828;
     border-radius: 15px;
 }
 
+@media (max-width: 410px) {
+    #board {
+        width: 100%;
+        aspect-ratio: 9/16; /* Maintain a 9:16 aspect ratio */
+    }
+}
