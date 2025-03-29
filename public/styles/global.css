@@ -159,6 +159,10 @@ header {
     letter-spacing: 1px;
 }
 
+#game-title {
+    text-align: center;
+}
+
 .section-title:hover {
     transform: skew(-5deg) scale(1.05);
 }
@@ -379,10 +383,6 @@ footer {
         width: 65vw; /* Adjust size relative to viewport width */
         max-height: 25vh; /* Keep image proportions reasonable */
     }
-
-    #game-container {
-        padding: 10px;
-    }
 }
 
 .fade-out {
@@ -397,9 +397,9 @@ footer {
     border-radius: 10px;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 470px) {
     #board {
         width: 100%;
-        aspect-ratio: 9/16; /* Maintain a 9:16 aspect ratio */
+        aspect-ratio: 2/3; /* Maintain a 2:3 aspect ratio */
     }
 }
